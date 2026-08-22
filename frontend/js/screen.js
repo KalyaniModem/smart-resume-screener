@@ -41,9 +41,10 @@ function setupDropzone() {
 function handleFiles(files) {
     const allowed = ['.pdf', '.txt'];
     for (let file of files) {
-        const ext = '.' + file.name.split('.').pop().lowerCase();
+        const parts = file.name.split('.');
+        const ext = parts.length > 1 ? '.' + parts.pop().toLowerCase() : '';
         if (!allowed.includes(ext)) {
-            alert(`Unsupported file type: ${file.name}. Please upload PDF or TXT files.`);
+            alert(`Unsupported file type: ${file.name}. Please upload PDF (.pdf) or Text (.txt) files.`);
             continue;
         }
         if (file.size === 0) {
@@ -56,6 +57,10 @@ function handleFiles(files) {
         }
     }
     renderFileList();
+    
+    // Reset file input value so re-selecting the same file triggers change event
+    const fileInput = document.getElementById('resume-file-input');
+    if (fileInput) fileInput.value = '';
 }
 
 function renderFileList() {
@@ -92,6 +97,12 @@ function setupFormListeners() {
         jobFileInput.addEventListener('change', async (e) => {
             if (e.target.files.length) {
                 const file = e.target.files[0];
+                const ext = '.' + file.name.split('.').pop().toLowerCase();
+                if (ext !== '.txt') {
+                    alert(`Job file must be a .txt file. Please paste your job description text into the Job Description box directly, or upload a .txt file.`);
+                    jobFileInput.value = '';
+                    return;
+                }
                 const text = await file.text();
                 document.getElementById('job-description').value = text;
                 if (!document.getElementById('job-title').value) {
