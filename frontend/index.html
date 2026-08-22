@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Resume Screener — Recruiter Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="logo">
+            <h1>Smart Resume Screener</h1>
+            <span>AI-Powered Talent Matching</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Dashboard</a></li>
+            <li><a href="screen.html">Screen Candidates</a></li>
+            <li><a href="history.html">Screening History</a></li>
+            <li><a href="compare.html">Compare Candidates</a></li>
+        </ul>
+    </header>
+
+    <main class="container">
+        <!-- Page Title & CTA -->
+        <div class="page-header">
+            <div>
+                <h2>Recruiter Dashboard</h2>
+                <p>Overview of screened candidates, match scores, and shortlisting status</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+                <button id="export-csv-btn" class="btn btn-secondary">📥 Export CSV</button>
+                <a href="screen.html" class="btn btn-primary">⚡ Screen New Resumes</a>
+            </div>
+        </div>
+
+        <!-- Summary Metrics Cards -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="title">Total Candidates</div>
+                <div class="value" id="stat-total-candidates">0</div>
+                <div class="subtext">Parsed profiles in database</div>
+            </div>
+            <div class="metric-card">
+                <div class="title">Total Screenings</div>
+                <div class="value" id="stat-screened">0</div>
+                <div class="subtext">Evaluations performed</div>
+            </div>
+            <div class="metric-card">
+                <div class="title">Shortlisted</div>
+                <div class="value" style="color: var(--success-color);" id="stat-shortlisted">0</div>
+                <div class="subtext">Score ≥ Threshold</div>
+            </div>
+            <div class="metric-card">
+                <div class="title">Not Shortlisted</div>
+                <div class="value" style="color: var(--danger-color);" id="stat-not-shortlisted">0</div>
+                <div class="subtext">Below threshold cutoff</div>
+            </div>
+            <div class="metric-card">
+                <div class="title">Average Match Score</div>
+                <div class="value" style="color: var(--primary-color);" id="stat-avg-score">0 / 10</div>
+                <div class="subtext">Mean candidate fit rating</div>
+            </div>
+        </div>
+
+        <!-- Candidates Table Card -->
+        <div class="card">
+            <div class="card-title">
+                <span>Screened Candidates</span>
+            </div>
+
+            <!-- Toolbar & Controls -->
+            <div class="toolbar">
+                <div class="filter-group">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search by name, role, email..." style="width: 280px;">
+                    <select id="filter-status" class="select-input">
+                        <option value="all">All Statuses</option>
+                        <option value="shortlisted">Shortlisted</option>
+                        <option value="not_shortlisted">Not Shortlisted</option>
+                    </select>
+                </div>
+                <div class="sort-group">
+                    <label style="font-size: 0.85rem; color: #64748b;">Sort by:</label>
+                    <select id="sort-by" class="select-input">
+                        <option value="score_desc">Highest Match Score</option>
+                        <option value="score_asc">Lowest Match Score</option>
+                        <option value="name">Candidate Name</option>
+                        <option value="date">Screening Date</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Candidate</th>
+                            <th>Job Role</th>
+                            <th>Matching Skills</th>
+                            <th>Match Score</th>
+                            <th>Status</th>
+                            <th>Screening Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="candidates-tbody">
+                        <tr>
+                            <td colspan="7" style="text-align: center; padding: 2rem; color: #64748b;">Loading candidate data...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Smart Resume Screener &copy; 2026 — Production AI Recruitment Screening Platform</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

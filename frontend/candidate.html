@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Deep Dive Analysis — Smart Resume Screener</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <h1>Smart Resume Screener</h1>
+            <span>AI-Powered Talent Matching</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="screen.html">Screen Candidates</a></li>
+            <li><a href="history.html">Screening History</a></li>
+            <li><a href="compare.html">Compare Candidates</a></li>
+        </ul>
+    </header>
+
+    <main class="container">
+        <!-- Navigation Back -->
+        <div style="margin-bottom: 1rem;">
+            <a href="index.html" class="btn btn-secondary btn-sm">← Back to Dashboard</a>
+        </div>
+
+        <!-- Candidate Profile Header Banner -->
+        <div class="candidate-header-banner">
+            <div class="candidate-profile-info">
+                <h2 id="cand-name">Candidate Name</h2>
+                <div class="candidate-meta">
+                    <span>✉ <span id="cand-email">email</span></span>
+                    <span>📞 <span id="cand-phone">phone</span></span>
+                    <span>📍 <span id="cand-location">location</span></span>
+                    <span>Target Role: <strong id="job-title-label">Role</strong></span>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <span class="badge badge-success" id="status-badge" style="font-size: 1rem; padding: 0.5rem 1rem;">Shortlisted</span>
+                <div class="score-display-box">
+                    <div class="score-number" id="match-score-num">0.0</div>
+                    <div class="score-label" id="fit-level-label">Rating Fit</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- "Why Shortlisted?" Highlight Card -->
+        <div class="highlight-box" id="why-shortlisted-box">
+            <h4>💡 Shortlisting Justification & Key Evidence</h4>
+            <p>Loading evaluation reasoning...</p>
+        </div>
+
+        <!-- Category Score Breakdown Row -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="title">Skills Match</div>
+                <div class="value" style="color: var(--primary-color);" id="skills-score-val">85%</div>
+                <div class="subtext">Core & technical skills alignment</div>
+            </div>
+            <div class="metric-card">
+                <div class="title">Experience Match</div>
+                <div class="value" style="color: var(--success-color);" id="exp-score-val">80%</div>
+                <div class="subtext">Role relevance & seniority</div>
+            </div>
+            <div class="metric-card">
+                <div class="title">Education Match</div>
+                <div class="value" style="color: var(--info-color);" id="edu-score-val">90%</div>
+                <div class="subtext">Degree & field qualification</div>
+            </div>
+        </div>
+
+        <!-- Analysis Grid: Skills & Strengths/Gaps -->
+        <div class="analysis-grid">
+            <!-- Matching Skills -->
+            <div class="card">
+                <div class="card-title">
+                    <span style="color: var(--success-color);">✓ Matching Skills</span>
+                </div>
+                <div id="matching-skills-cloud" class="tag-cloud">
+                    <p style="color: #94a3b8;">Loading...</p>
+                </div>
+            </div>
+
+            <!-- Missing Skills -->
+            <div class="card">
+                <div class="card-title">
+                    <span style="color: var(--danger-color);">✗ Missing Skills</span>
+                </div>
+                <div id="missing-skills-cloud" class="tag-cloud">
+                    <p style="color: #94a3b8;">Loading...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strengths vs Gaps -->
+        <div class="analysis-grid">
+            <div class="card">
+                <div class="card-title">
+                    <span>Key Strengths</span>
+                </div>
+                <ul id="strengths-list" style="padding-left: 1.25rem; font-size: 0.9rem; color: #334155;">
+                    <li>Loading...</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <span>Identified Gaps</span>
+                </div>
+                <ul id="gaps-list" style="padding-left: 1.25rem; font-size: 0.9rem; color: #334155;">
+                    <li>Loading...</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Work Experience & Education Timeline -->
+        <div class="analysis-grid">
+            <div class="card">
+                <div class="card-title">
+                    <span>Work Experience Timeline</span>
+                </div>
+                <div id="experience-history-list">
+                    <p style="color: #94a3b8;">Loading...</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <span>Education Background</span>
+                </div>
+                <div id="education-history-list">
+                    <p style="color: #94a3b8;">Loading...</p>
+                </div>
+                <div style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1rem;">
+                    <button id="view-raw-resume-btn" class="btn btn-secondary btn-sm" style="width: 100%;">View Raw Resume Text</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Smart Resume Screener &copy; 2026 — Production AI Recruitment Screening Platform</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/candidate.js"></script>
+</body>
+</html>

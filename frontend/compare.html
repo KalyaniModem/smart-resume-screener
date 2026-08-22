@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Comparison — Smart Resume Screener</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <h1>Smart Resume Screener</h1>
+            <span>AI-Powered Talent Matching</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="screen.html">Screen Candidates</a></li>
+            <li><a href="history.html">Screening History</a></li>
+            <li><a href="compare.html" class="active">Compare Candidates</a></li>
+        </ul>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <div>
+                <h2>Side-by-Side Candidate Comparison</h2>
+                <p>Compare skills, qualifications, match scores, and education across top candidate profiles</p>
+            </div>
+        </div>
+
+        <div id="comparison-grid" style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+            <p style="color: #64748b;">Loading candidate comparison...</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>Smart Resume Screener &copy; 2026 — Production AI Recruitment Screening Platform</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/compare.js"></script>
+</body>
+</html>

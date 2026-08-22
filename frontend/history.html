@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screening Audit History — Smart Resume Screener</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <h1>Smart Resume Screener</h1>
+            <span>AI-Powered Talent Matching</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="screen.html">Screen Candidates</a></li>
+            <li><a href="history.html" class="active">Screening History</a></li>
+            <li><a href="compare.html">Compare Candidates</a></li>
+        </ul>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <div>
+                <h2>Screening Audit History</h2>
+                <p>Complete historical log of all candidate screenings performed across jobs</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Screening ID</th>
+                            <th>Candidate Name</th>
+                            <th>Job Description</th>
+                            <th>Match Score</th>
+                            <th>Status</th>
+                            <th>Timestamp</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-tbody">
+                        <tr>
+                            <td colspan="7" style="text-align: center; padding: 2rem; color: #64748b;">Loading screening audit history...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Smart Resume Screener &copy; 2026 — Production AI Recruitment Screening Platform</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/history.js"></script>
+</body>
+</html>

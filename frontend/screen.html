@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Candidates — Smart Resume Screener</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <h1>Smart Resume Screener</h1>
+            <span>AI-Powered Talent Matching</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="screen.html" class="active">Screen Candidates</a></li>
+            <li><a href="history.html">Screening History</a></li>
+            <li><a href="compare.html">Compare Candidates</a></li>
+        </ul>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <div>
+                <h2>Batch Resume Screening</h2>
+                <p>Upload a job description and multiple candidate resumes to perform AI semantic matching</p>
+            </div>
+            <div>
+                <button type="button" id="load-sample-btn" class="btn btn-secondary">⚡ Load Demo Preset (3 Resumes)</button>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <!-- Left Column: Job Description Input -->
+            <div class="card">
+                <div class="card-title">
+                    <span>1. Job Description</span>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; font-size: 0.85rem; color: #475569; display: block; margin-bottom: 0.3rem;">Job Title *</label>
+                    <input type="text" id="job-title" class="text-input" placeholder="e.g. Senior Full-Stack Python Engineer" style="width: 100%;">
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; font-size: 0.85rem; color: #475569; display: block; margin-bottom: 0.3rem;">Job Description Text *</label>
+                    <textarea id="job-description" placeholder="Paste full job description requirements here..."></textarea>
+                </div>
+
+                <div>
+                    <label style="font-weight: 600; font-size: 0.85rem; color: #475569; display: block; margin-bottom: 0.3rem;">OR Upload Job File (.txt)</label>
+                    <input type="file" id="job-file-input" accept=".txt">
+                </div>
+            </div>
+
+            <!-- Right Column: Resume Upload & Config -->
+            <div class="card">
+                <div class="card-title">
+                    <span>2. Candidate Resumes (.pdf, .txt)</span>
+                </div>
+
+                <!-- Drag & Drop Dropzone -->
+                <div class="dropzone" id="dropzone">
+                    <div class="dropzone-icon">📄</div>
+                    <p style="font-weight: 600; color: #0f172a; margin-bottom: 0.25rem;">Drop resumes here or click to browse</p>
+                    <p style="font-size: 0.8rem; color: #64748b;">Supports PDF (.pdf) and Text (.txt) files</p>
+                    <input type="file" id="resume-file-input" multiple accept=".pdf,.txt" style="display: none;">
+                </div>
+
+                <!-- Selected Files List -->
+                <div style="margin-top: 1.25rem;">
+                    <label style="font-weight: 600; font-size: 0.85rem; color: #475569;">Selected Resumes:</label>
+                    <div id="selected-files-list" class="file-list">
+                        <p style="color: #64748b; font-size: 0.85rem;">No files selected yet.</p>
+                    </div>
+                </div>
+
+                <!-- Shortlist Threshold Selector -->
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <label style="font-weight: 600; font-size: 0.9rem; color: #0f172a;">Shortlist Threshold (Score out of 10):</label>
+                        <input type="number" id="shortlist-threshold" class="text-input" value="7.0" min="1.0" max="10.0" step="0.5" style="width: 80px; text-align: center; font-weight: 700;">
+                    </div>
+                    <p style="font-size: 0.78rem; color: #64748b; margin-top: 0.25rem;">Candidates scoring at or above this cutoff will be marked as "Shortlisted".</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit CTA -->
+        <div style="text-align: right; margin-top: 1rem; margin-bottom: 2rem;">
+            <button type="button" id="run-screen-btn" class="btn btn-primary" style="padding: 0.8rem 2rem; font-size: 1rem;">🚀 Screen Candidates Now</button>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="card" id="progress-card" style="display: none;">
+            <div class="card-title">
+                <span>Batch Screening Execution</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                </div>
+                <div class="progress-status">
+                    <span id="progress-status-text">Initializing batch processing...</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Smart Resume Screener &copy; 2026 — Production AI Recruitment Screening Platform</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/screen.js"></script>
+</body>
+</html>
