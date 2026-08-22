@@ -1,0 +1,23 @@
+Job Title: Senior Full-Stack Python Engineer
+
+Company Overview:
+TechScale Innovations is seeking a talented Senior Full-Stack Python Engineer to design, build, and scale our core SaaS analytics platform.
+
+Role & Responsibilities:
+- Build high-performance REST APIs and asynchronous background services using Python (FastAPI/Django) and PostgreSQL.
+- Architect dynamic, responsive user interface components using HTML5, CSS3, JavaScript, and modern frontend techniques.
+- Design relational database schemas, optimize SQL queries, and implement caching strategies with Redis.
+- Deploy and maintain containerized applications using Docker, Kubernetes, and AWS (EC2, S3, RDS).
+- Write automated unit, integration, and end-to-end tests to maintain high code quality standards.
+- Collaborate with product managers and UI developers in an agile environment.
+
+Required Skills & Qualifications:
+- 4+ years of professional software development experience in Python (FastAPI, Django, or Flask).
+- Strong proficiency in SQL, database optimization, and relational databases (PostgreSQL or SQLite).
+- Frontend web development experience with HTML, CSS, and modern JavaScript.
+- Proficiency with Docker, CI/CD pipelines, and cloud deployment (AWS or GCP).
+- Experience with Git, Linux environments, and automated testing frameworks (pytest).
+- Excellent analytical, problem-solving, and communication skills.
+
+Education Requirements:
+- Bachelor's or Master's degree in Computer Science, Software Engineering, or a related quantitative field.

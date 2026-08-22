@@ -1,0 +1,26 @@
+Michael Brown
+Email: michael.b@example.com
+Phone: (555) 345-6789
+Location: Chicago, IL
+
+SUMMARY
+Software QA Analyst with 2 years of experience conducting manual and automated software testing for web and enterprise applications. Seeking to transition into software quality assurance leadership.
+
+TECHNICAL SKILLS
+- QA & Testing: Manual Testing, Selenium, Postman, Test Plan Execution, Bug Tracking
+- Programming: Java (Basic), HTML, Bash Scripting
+- Tools: Jira, Confluence, Git, Jenkins
+
+WORK EXPERIENCE
+Software QA Analyst | Enterprise Tech Systems | Jan 2022 - Present
+- Executed manual test scripts and cross-browser regression testing for enterprise software applications.
+- Created test cases, documented bug reports in Jira, and verified fixes with development teams.
+- Automated web browser test suites using Selenium WebDriver and Java.
+
+QA Assistant | Retail Tech Inc | Jun 2021 - Dec 2021
+- Performed API testing using Postman to validate backend HTTP response payloads.
+- Participated in daily agile standups and sprint planning sessions.
+
+EDUCATION
+Bachelor of Science in Business Administration
+DePaul University | 2017 - 2021

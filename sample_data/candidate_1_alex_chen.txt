@@ -1,0 +1,34 @@
+Alex Chen
+Email: alex.chen@example.com
+Phone: (555) 234-5678
+Location: San Francisco, CA
+
+SUMMARY
+Senior Software Engineer with 5 years of experience building scalable backend APIs, database systems, and full-stack web applications using Python, FastAPI, PostgreSQL, and JavaScript. Demonstrated success leading technical projects and deploying containerized microservices on AWS.
+
+TECHNICAL SKILLS
+- Languages: Python, JavaScript (ES6+), SQL, HTML5, CSS3
+- Frameworks & Libraries: FastAPI, Django, Flask, SQLAlchemy, Pytest
+- Databases: PostgreSQL, SQLite, Redis
+- DevOps & Cloud: Docker, Kubernetes, AWS (EC2, S3, RDS), CI/CD (GitHub Actions)
+- Tools: Git, Linux, REST APIs, Microservices, Agile/Scrum
+
+WORK EXPERIENCE
+Senior Backend Engineer | DataCloud Solutions | Jan 2022 - Present
+- Architected and deployed high-throughput REST APIs using FastAPI and Python, handling 2M+ daily requests.
+- Optimized PostgreSQL database queries, indexing, and connection pooling, reducing query latency by 45%.
+- Implemented Docker containerization and Kubernetes orchestration workflows on AWS EC2/RDS.
+- Mentored junior engineers and maintained 90%+ code coverage using Pytest unit and integration tests.
+
+Full-Stack Developer | Apex Software Corp | Jun 2019 - Dec 2021
+- Developed interactive web dashboard components using HTML, CSS, JavaScript, and Django REST framework.
+- Designed relational database schemas in SQLite and migrated production databases to PostgreSQL.
+- Built automated background processing queues with Celery and Redis.
+
+EDUCATION
+Bachelor of Science in Computer Science
+University of California, Berkeley | 2015 - 2019
+
+PROJECTS
+- AI Data Pipeline: Open-source Python ETL toolkit for extracting and structuring unstructured text documents.
+- Cloud Monitoring Dashboard: Lightweight web application built with FastAPI and vanilla JavaScript for tracking server metrics.

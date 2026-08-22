@@ -1,0 +1,29 @@
+Sarah Jenkins
+Email: sarah.j@example.com
+Phone: (555) 876-5432
+Location: Austin, TX
+
+SUMMARY
+Frontend Engineer with 3.5 years of experience building modern web interfaces. Strong background in HTML, CSS, JavaScript, and web accessibility. Basic experience with Python scripting, Flask APIs, and SQL databases.
+
+TECHNICAL SKILLS
+- Frontend: HTML5, CSS3, JavaScript, UI/UX Design, Accessibility (a11y)
+- Backend & Databases: Python (Flask), Node.js, SQLite, MySQL
+- Tools & Cloud: Git, Webpack, Figma, Basic Docker, Linux
+
+WORK EXPERIENCE
+Frontend Web Developer | Creative Digital Agency | Mar 2021 - Present
+- Created responsive web user interfaces and landing pages using HTML5, CSS3, and JavaScript.
+- Collaborated with UI designers to implement pixel-perfect layouts across mobile and desktop devices.
+- Integrated frontend interfaces with RESTful backend APIs written in Node.js and Python Flask.
+
+Junior Software Developer | WebTech Solutions | Aug 2020 - Feb 2021
+- Wrote basic Python scripts for web scraping and data transformation.
+- Maintained SQL queries and database updates for client websites using MySQL and SQLite.
+
+EDUCATION
+Bachelor of Arts in Information Technology
+University of Texas at Austin | 2016 - 2020
+
+CERTIFICATIONS
+- Certified Frontend Developer (2021)
