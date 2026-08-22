@@ -11,8 +11,11 @@
     <!-- Navigation Header -->
     <header class="navbar">
         <div class="logo">
-            <h1>Smart Resume Screener</h1>
-            <span>AI-Powered Talent Matching</span>
+            <div class="logo-icon">🎯</div>
+            <div>
+                <h1>Smart Resume Screener</h1>
+                <span>AI Placement Assessment System</span>
+            </div>
         </div>
         <ul class="nav-links">
             <li><a href="index.html" class="active">Dashboard</a></li>
@@ -27,11 +30,11 @@
         <div class="page-header">
             <div>
                 <h2>Recruiter Dashboard</h2>
-                <p>Overview of screened candidates, match scores, and shortlisting status</p>
+                <p>Overview of candidate profiles, match scores, and shortlisting recommendations</p>
             </div>
             <div style="display: flex; gap: 0.75rem;">
                 <button id="export-csv-btn" class="btn btn-secondary">📥 Export CSV</button>
-                <a href="screen.html" class="btn btn-primary">⚡ Screen New Resumes</a>
+                <a href="screen.html" class="btn btn-primary">🚀 Screen Resumes</a>
             </div>
         </div>
 
@@ -49,17 +52,17 @@
             </div>
             <div class="metric-card">
                 <div class="title">Shortlisted</div>
-                <div class="value" style="color: var(--success-color);" id="stat-shortlisted">0</div>
+                <div class="value" style="color: var(--success);" id="stat-shortlisted">0</div>
                 <div class="subtext">Score ≥ Threshold</div>
             </div>
             <div class="metric-card">
                 <div class="title">Not Shortlisted</div>
-                <div class="value" style="color: var(--danger-color);" id="stat-not-shortlisted">0</div>
+                <div class="value" style="color: var(--danger);" id="stat-not-shortlisted">0</div>
                 <div class="subtext">Below threshold cutoff</div>
             </div>
             <div class="metric-card">
                 <div class="title">Average Match Score</div>
-                <div class="value" style="color: var(--primary-color);" id="stat-avg-score">0 / 10</div>
+                <div class="value" style="color: var(--primary);" id="stat-avg-score">0 / 10</div>
                 <div class="subtext">Mean candidate fit rating</div>
             </div>
         </div>
@@ -67,21 +70,22 @@
         <!-- Candidates Table Card -->
         <div class="card">
             <div class="card-title">
-                <span>Screened Candidates</span>
+                <span>Candidate Evaluation Registry</span>
             </div>
 
             <!-- Toolbar & Controls -->
             <div class="toolbar">
                 <div class="filter-group">
-                    <input type="text" id="search-input" class="search-input" placeholder="Search by name, role, email..." style="width: 280px;">
+                    <input type="text" id="search-input" class="search-input" placeholder="🔍 Search by candidate name, role, email..." style="width: 320px;">
                     <select id="filter-status" class="select-input">
-                        <option value="all">All Statuses</option>
-                        <option value="shortlisted">Shortlisted</option>
-                        <option value="not_shortlisted">Not Shortlisted</option>
+                        <option value="all">All Candidates</option>
+                        <option value="shortlisted">Shortlisted Only</option>
+                        <option value="not_shortlisted">Not Shortlisted Only</option>
+                        <option value="unscreened">Unscreened Profiles</option>
                     </select>
                 </div>
                 <div class="sort-group">
-                    <label style="font-size: 0.85rem; color: #64748b;">Sort by:</label>
+                    <label style="font-size: 0.85rem; color: #64748b; font-weight: 600;">Sort by:</label>
                     <select id="sort-by" class="select-input">
                         <option value="score_desc">Highest Match Score</option>
                         <option value="score_asc">Lowest Match Score</option>
@@ -96,13 +100,13 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Candidate</th>
+                            <th>Candidate Profile</th>
                             <th>Job Role</th>
-                            <th>Matching Skills</th>
+                            <th>Key / Matching Skills</th>
                             <th>Match Score</th>
-                            <th>Status</th>
-                            <th>Screening Date</th>
-                            <th>Action</th>
+                            <th>Shortlist Status</th>
+                            <th>Date</th>
+                            <th>Recruiter Action</th>
                         </tr>
                     </thead>
                     <tbody id="candidates-tbody">

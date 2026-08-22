@@ -61,6 +61,34 @@ def extract_text_from_pdf(file_path: Path) -> str:
         logger.error(f"Error reading PDF file {file_path}: {str(e)}")
         raise ValueError(f"Could not read PDF file: {str(e)}")
 
+def extract_text_from_docx(file_path: Path) -> str:
+    """Extract text from Microsoft Word .docx file using python-docx."""
+    try:
+        import docx
+        doc = docx.Document(str(file_path))
+        full_text = []
+        for para in doc.paragraphs:
+            if para.text.strip():
+                full_text.append(para.text.strip())
+        
+        # Also extract table text
+        for table in doc.tables:
+            for row in table.rows:
+                for cell in row.cells:
+                    if cell.text.strip():
+                        full_text.append(cell.text.strip())
+
+        text_content = "\n".join(full_text)
+        cleaned = clean_extracted_text(text_content)
+
+        if not cleaned or len(cleaned) < 10:
+            raise ValueError("This Word document contains no extractable text.")
+
+        return cleaned
+    except Exception as e:
+        logger.error(f"Error reading DOCX file {file_path}: {str(e)}")
+        raise ValueError(f"Could not read Word document (.docx): {str(e)}")
+
 def extract_text_from_file(file_path: Path) -> str:
     """Unified file text extractor route based on file extension."""
     ext = file_path.suffix.lower()
@@ -68,5 +96,7 @@ def extract_text_from_file(file_path: Path) -> str:
         return extract_text_from_txt(file_path)
     elif ext == ".pdf":
         return extract_text_from_pdf(file_path)
+    elif ext == ".docx":
+        return extract_text_from_docx(file_path)
     else:
         raise ValueError(f"Unsupported file format: {ext}")

@@ -1,7 +1,7 @@
 from fastapi import HTTPException, status
 from backend.config import settings
 
-ALLOWED_EXTENSIONS = {".pdf", ".txt"}
+ALLOWED_EXTENSIONS = {".pdf", ".txt", ".docx"}
 
 def validate_uploaded_file(filename: str, file_size: int):
     """Validate file extension and file size."""
@@ -15,7 +15,7 @@ def validate_uploaded_file(filename: str, file_size: int):
     if ext not in ALLOWED_EXTENSIONS:
         raise HTTPException(
             status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
-            detail=f"Unsupported file type '{ext}'. Please upload a PDF (.pdf) or Text (.txt) resume."
+            detail=f"Unsupported file type '{ext}'. Please upload a PDF (.pdf), Text (.txt), or Word (.docx) resume."
         )
 
     max_bytes = settings.MAX_UPLOAD_SIZE_MB * 1024 * 1024

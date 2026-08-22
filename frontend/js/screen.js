@@ -3,6 +3,33 @@
  */
 let selectedFiles = [];
 
+const JOB_PRESETS = {
+    software_dev: {
+        title: "Software Developer",
+        desc: "We are looking for a motivated Software Developer to join our engineering team. The candidate will be responsible for designing, developing, testing, debugging, and maintaining software applications. Ideal candidates have strong programming fundamentals in Python, Java, C++, SQL, Git, and Linux."
+    },
+    fullstack: {
+        title: "Senior Full-Stack Python Engineer",
+        desc: "TechScale Innovations is seeking a Senior Full-Stack Python Engineer to design, build, and scale core SaaS analytics platforms. Required skills: Python (FastAPI/Django), PostgreSQL, HTML, CSS, JavaScript, Docker, Kubernetes, AWS, and automated testing with pytest."
+    },
+    data_science: {
+        title: "Data Scientist & ML Specialist",
+        desc: "Looking for a Data Scientist to build predictive machine learning models and data pipelines. Requirements: Python, SQL, Machine Learning (scikit-learn, PyTorch/TensorFlow), pandas, numpy, BigQuery, data visualization, and statistical modeling."
+    },
+    qa: {
+        title: "Software QA Automation Engineer",
+        desc: "Seeking QA Analyst to execute manual and automated software testing. Required skills: Selenium WebDriver, Postman API testing, Python or Java, Jira bug tracking, CI/CD Jenkins, and regression testing."
+    }
+};
+
+function fillJobPreset(type) {
+    const preset = JOB_PRESETS[type];
+    if (preset) {
+        document.getElementById('job-title').value = preset.title;
+        document.getElementById('job-description').value = preset.desc;
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     setupDropzone();
     setupFormListeners();
@@ -39,12 +66,12 @@ function setupDropzone() {
 }
 
 function handleFiles(files) {
-    const allowed = ['.pdf', '.txt'];
+    const allowed = ['.pdf', '.txt', '.docx'];
     for (let file of files) {
         const parts = file.name.split('.');
         const ext = parts.length > 1 ? '.' + parts.pop().toLowerCase() : '';
         if (!allowed.includes(ext)) {
-            alert(`Unsupported file type: ${file.name}. Please upload PDF (.pdf) or Text (.txt) files.`);
+            alert(`Unsupported file type: ${file.name}. Please upload PDF (.pdf), Text (.txt), or Word (.docx) files.`);
             continue;
         }
         if (file.size === 0) {

@@ -19,8 +19,39 @@ def extract_email(text: str) -> Optional[str]:
     return match.group(0) if match else None
 
 def extract_phone(text: str) -> Optional[str]:
-    match = re.search(PHONE_REGEX, text)
-    return match.group(0) if match else None
+    """Extract phone/mobile number supporting international formats (India +91, US +1, 10-digit, etc)."""
+    if not text:
+        return None
+
+    # Pass 1: Explicit labeled lines like "Mobile: +91 9876543210", "Phone: (555) 234-5678"
+    labeled_match = re.search(r'(?:mobile|phone|tel|contact|ph)[:\s]*([+\d\(\)\-\s\.]{7,20})', text, re.I)
+    if labeled_match:
+        raw_num = labeled_match.group(1).strip()
+        cleaned = re.sub(r'[^\d+]', '', raw_num)
+        if 7 <= len(cleaned) <= 15:
+            return raw_num
+
+    # Pass 2: International format with country code (e.g. +91 98765 43210, +1 (555) 234-5678)
+    intl_match = re.search(r'\+\d{1,3}[-.\s]?\(?\d{2,5}\)?[-.\s]?\d{3,5}[-.\s]?\d{3,5}', text)
+    if intl_match:
+        return intl_match.group(0).strip()
+
+    # Pass 3: Formatted 10-digit numbers (e.g. (555) 234-5678 or 987-654-3210 or 98765-43210)
+    fmt_match = re.search(r'\(?\d{3,5}\)?[-.\s]?\d{3,5}[-.\s]?\d{4}', text)
+    if fmt_match:
+        return fmt_match.group(0).strip()
+
+    # Pass 4: Indian 10-digit mobile numbers (starts with 6-9) or +91/0 prefix
+    raw_match = re.search(r'\b(?:0|\+?91[-.\s]?)?([6-9]\d{9})\b', text)
+    if raw_match:
+        return raw_match.group(0).strip()
+
+    # Pass 5: General 10-digit sequence boundary fallback
+    fallback_match = re.search(r'\b\d{10}\b', text)
+    if fallback_match:
+        return fallback_match.group(0).strip()
+
+    return None
 
 def extract_name(text: str) -> str:
     """Extract candidate name from header lines heuristic."""
