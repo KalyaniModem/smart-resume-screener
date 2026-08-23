@@ -36,22 +36,22 @@ Recruitment teams process hundreds of resumes per job opening. Traditional keywo
 
 ```mermaid
 flowchart TD
-    User([Recruiter / User]) -->|HTTP / REST| Frontend[Vanilla HTML5 / CSS3 / JavaScript Dashboard]
+    User(["Recruiter / User"]) -->|HTTP / REST| Frontend["Vanilla HTML5 / CSS3 / JavaScript Dashboard"]
     
-    subgraph Python Backend (FastAPI)
-        API[API Router Layer] --> Services[Service Orchestration Layer]
+    subgraph backend ["Python Backend (FastAPI)"]
+        API["API Router Layer"] --> Services["Service Orchestration Layer"]
         
-        Services --> Extractor[Text Extractor: PDF & TXT]
-        Services --> Parser[Resume Parser & Skill Normalizer]
-        Services --> Matcher[LLM & Fallback Matching Engine]
+        Services --> Extractor["Text Extractor: PDF, DOCX & TXT"]
+        Services --> Parser["Resume Parser & Skill Normalizer"]
+        Services --> Matcher["LLM & Fallback Matching Engine"]
         
-        Matcher -->|Prompt Payload| LLM[Google Gemini / OpenAI API]
+        Matcher -->|Prompt Payload| LLM["Google Gemini / OpenAI API"]
         
-        Services --> Repositories[Data Repositories]
+        Services --> Repositories["Data Repositories"]
     end
 
-    Repositories -->|SQLAlchemy ORM| DB[(SQLite Relational Database)]
-    Frontend <-- JSON Data --> API
+    Repositories -->|SQLAlchemy ORM| DB[("SQLite Relational Database")]
+    Frontend <-->|JSON Data| API
 ```
 
 ---
