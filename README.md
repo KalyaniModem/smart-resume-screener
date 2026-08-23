@@ -120,6 +120,7 @@ smart-resume-screener/
 ---
 
 ## 6. Installation & Setup Instructions
+### Step 1: Clone & Navigate to Repository
 ```bash
 git clone https://github.com/KalyaniModem/smart-resume-screener.git
 cd smart-resume-screener
