@@ -121,8 +121,8 @@ smart-resume-screener/
 
 ## 6. Installation & Setup Instructions
 
-git clone https://github.com/KalyaniModem/smart-resume-screener.git
-cd smart-resume-screener
+--- git clone https://github.com/KalyaniModem/smart-resume-screener.git
+--- cd smart-resume-screener
 
 ### Step 2: Create and Activate Python Virtual Environment
 ```powershell
